@@ -1,0 +1,35 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gxuwz.leave.mapper.DepartmentMapper">
+    <insert id="insert" parameterType="department">
+       insert into department(depid,depname)values(#{depid},#{depname})
+    </insert>
+    <update id="update" parameterType="department" >
+        update user
+        <set>
+            <if test="depname!=null">
+                 depname=#{depname},
+            </if>
+            <if test="deptype!=null">
+                deptype=#{deptype},
+            </if>
+        </set>
+            where  depid=#{depid}
+    </update>
+    <delete id="delete" parameterType="string">
+        delete from department where depid=#{depid}
+    </delete>
+    <select id="query" parameterType="department" resultType="department">
+        select * from department
+        <where>
+            <if test="depname!=null">
+                and depname=#{depname}
+            </if>
+            <if test="depid!=null">
+                and depid=#{depid}
+            </if>
+        </where>
+    </select>
+</mapper>
