@@ -9,7 +9,17 @@ public class User {
     private String fullname;
     private String password;
     private String status;
+
     private Department department;
+
+    public User(String userid, String password) {
+        this.userid = userid;
+        this.password = password;
+    }
+
+    public User(String userid) {
+        this.userid = userid;
+    }
 
     public User() {
     }

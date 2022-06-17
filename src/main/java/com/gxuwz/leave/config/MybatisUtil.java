@@ -13,7 +13,7 @@ import java.io.InputStream;
  */
 public class MybatisUtil {
     public static  SqlSessionFactory sqlSessionFactory ;
-    public static final String RESOURCE="mybatis-config.xml";
+    public static final String RESOURCE="mybtais-config.xml";
     static{
         try{
              InputStream inputStream = Resources.getResourceAsStream(RESOURCE);

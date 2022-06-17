@@ -20,6 +20,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mapper/*Mapper.xml"/>
+        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/DepartmentMapper.xml"/>
     </mappers>
 </configuration>
