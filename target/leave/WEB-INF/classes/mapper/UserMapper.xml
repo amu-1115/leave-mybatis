@@ -1,0 +1,47 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gxuwz.leave.mapper.UserMapper">
+    <insert id="insert" parameterType="user">
+       insert into user(userid,fullname,password,status,depid)values(#{userid},#{fullname},#{password},#{status},#{department.depid})
+    </insert>
+    <update id="update" parameterType="user" >
+        update user
+        <set>
+            <if test="fullname!=null">
+                 fullname=#{fullname},
+            </if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+            <if test="status!=null">
+                status=#{status},
+            </if>
+            <if test="department!=null and department.depid!=null">
+                depid=#{department.depid}
+            </if>
+        </set>
+            where  userid=#{userid}
+    </update>
+    <delete id="delete" parameterType="string">
+        delete from user where userid=#{userid}
+    </delete>
+    <select id="query" parameterType="user" resultType="user">
+        select * from user
+        <where>
+            <if test="fullname!=null">
+                and fullname=#{fullname}
+            </if>
+            <if test="password!=null">
+                and password=#{password}
+            </if>
+            <if test="status!=null">
+                and status=#{status}
+            </if>
+            <if test="department!=null and department.depid!=null">
+                and depid=#{department.depid}
+            </if>
+        </where>
+    </select>
+</mapper>
