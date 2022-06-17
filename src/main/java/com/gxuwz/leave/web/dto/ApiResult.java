@@ -16,6 +16,7 @@ public class ApiResult {
     }
 
     public ApiResult() {
+        this.setMessage("调用成功");
     }
 
     public String getCode() {

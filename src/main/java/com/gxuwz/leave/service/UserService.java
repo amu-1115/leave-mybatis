@@ -15,6 +15,12 @@ public class UserService {
     public void addUser(User entity){
         userDao.insert(entity);
     }
+    public void editUser(User entity){
+        userDao.update(entity);
+    }
+    public List<User> listUser(User entity){
+        return userDao.query(entity);
+    }
 
     /**
      *
